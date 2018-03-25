@@ -1,0 +1,12 @@
+<div id="tweet-bar">
+  <form action="tweets/new" method="POST">
+    <input type="text" name="tweet[message]" size="70">
+    <input type="submit" value="Tweet">
+    <br/>
+    Mention <input type="text" name="tweet[mention]" size="55">
+    <br/>
+    Hashtag <input type="text" name="tweet[hashtag]" size="55">
+
+  </form>
+</div>
+<%= erb :tweet_feed %>

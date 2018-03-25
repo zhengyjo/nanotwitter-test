@@ -1,0 +1,30 @@
+
+<div class="search-result-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h1>Search Results</h1>
+        <% if @no_term || @results.length == 0 %>
+          <p>No results found.</p>
+        <% else %>
+          <% if @user_search %>
+            <% @results.each do |user| %>
+              <% @user = user %>
+              <%= erb :user_item %>
+              <br>
+            <% end %>
+          <% else %>
+            <% @results.each do |tweet| %>
+              <% @tweet = tweet %>
+              <%= erb :tweet %>
+              <br>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-lg-4" >
+        <%= erb :profile %>
+      </div>
+    </div>
+  </div>
+</div>

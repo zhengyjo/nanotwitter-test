@@ -1,0 +1,10 @@
+<h2>Login to Nanotwitter</h2>
+<h4> <%=@texts%> </h4>
+<form action= "<%= ErbConstants::ERBCON %>/login" method="POST">
+  <input type="text" name="username">
+  <input type="text" name="password">
+  <input type="submit" value="Login">
+</form>
+<br>
+
+<p>Haven't registered? Click <a href="<%= ErbConstants::ERBCON %>/user/register">here</a>.</p>

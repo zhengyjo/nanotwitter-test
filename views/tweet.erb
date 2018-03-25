@@ -1,0 +1,28 @@
+<div class="tweet" id="tweet-<%= @tweet.id %>">
+  <div class="row">
+    <div class="col-sm-12" style="text-align: left">
+      <a href="<%= ErbConstants::ERBCON %>/user/<%= @tweet.user.id %>"><%= @tweet.user.username %></a> - <%= TimeDifference.between(@tweet.created_at, DateTime.now).humanize %> ago
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" style="text-align: left">
+      <span class="tweet-message">
+            <%= @tweet.message %>
+            <% if !Mention.find_by(tweet_id: @tweet.id).nil? %>
+                <% mentions = Mention.where(tweet_id: @tweet.id) %>
+                <br>
+                <% mentions.each do |mention| %>
+                  <a href="<%= ErbConstants::ERBCON %>/user/<%= User.find_by_username(mention.username).id %>">@<%= mention.username %></a>
+                <% end %>
+            <% end %>
+            <% if !HashtagTweet.find_by(tweet_id: @tweet.id).nil? %>
+                <% hashtags = HashtagTweet.where(tweet_id: @tweet.id) %>
+                <br>
+                <% hashtags.each do |tag| %>
+                  <a href="<%= ErbConstants::ERBCON %>/hashtag/<%= tag.hashtag_id %>">#<%= tag.hashtag.tag %></a>
+                <% end %>
+            <% end %>
+       </span>
+    </div>
+  </div>
+</div>

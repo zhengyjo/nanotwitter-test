@@ -1,0 +1,16 @@
+<div class="tweets-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <% @tweets.each do |tweet| %>
+          <% @tweet = tweet %>
+          <%= erb :tweet %>
+          <br>
+        <% end %>
+      </div>
+      <div class="col-lg-3" >
+        <%= erb :profile %>
+      </div>
+    </div>
+  </div>
+</div>

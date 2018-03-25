@@ -1,0 +1,17 @@
+<div class="user-list-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h1><%= @title %></h1>
+        <% @user_list.each do |user| %>
+          <% @user = user %>
+          <%= erb :user_item %>
+          <br>
+        <% end %>
+      </div>
+      <div class="col-lg-4" >
+        <%= erb :profile %>
+      </div>
+    </div>
+  </div>
+</div>
